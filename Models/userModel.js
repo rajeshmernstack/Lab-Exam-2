@@ -9,12 +9,12 @@ main();
 const userSchema = new mongoose.Schema({
     fullname: String,
     email: String,
-    phone: Integer,
+    phone: Number,
     country: String,
     state: String,
     city: String,
     address: String,
-    zipcode: Integer,
+    zipcode: Number,
     avatar: String,
 });
 

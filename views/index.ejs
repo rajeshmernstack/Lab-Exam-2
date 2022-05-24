@@ -33,88 +33,50 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                                    style="width: 45px; height: 45px" class="rounded-circle" />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">John Doe</p>
-                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Software engineer</p>
-                            <p class="text-muted mb-0">IT department</p>
-                        </td>
-                        <td>
-                            23545
-                        </td>
-                        <td>Senior</td>
-                        <td>
-                            <span class="badge badge-success rounded-pill d-inline">2343245</span>
-                        </td>
-                        <td>
-                            <!-- Default dropleft button -->
-                            <div class="btn-group dropstart">
-                                <button type="button" class="btn" data-mdb-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#"><i class="far fa-trash-alt"></i> Delete</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#"><i class="fas fa-pencil-alt"></i> Edit</a>
-                                    </li>
 
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                                    style="width: 45px; height: 45px" class="rounded-circle" />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">John Doe</p>
-                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                    <% for(let i=0; i<data.length; i++){ %>
+                        <tr>
+                            <td>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="images/<%= data[i].avatar %>" alt=""
+                                        style="width: 45px; height: 45px" class="rounded-circle" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1"><%= data[i].fullname %></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Software engineer</p>
-                            <p class="text-muted mb-0">IT department</p>
-                        </td>
-                        <td>
-                            23545
-                        </td>
-                        <td>Senior</td>
-                        <td>
-                            <span class="badge badge-success rounded-pill d-inline">2343245</span>
-                        </td>
-                        <td>
-                            <!-- Default dropleft button -->
-                            <div class="btn-group dropstart">
-                                <button type="button" class="btn" data-mdb-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#"><i class="far fa-trash-alt"></i> Delete</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#"><i class="fas fa-pencil-alt"></i> Edit</a>
-                                    </li>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1"><%= data[i].email %></p>
+                            </td>
+                            <td>
+                                <%= data[i].phone %>
+                            </td>
+                            <td><%= data[i].city %></td>
+                            <td>
+                                <span class="badge badge-success rounded-pill d-inline"><%= data[i].zipcode %></span>
+                            </td>
+                            <td>
+                                <!-- Default dropleft button -->
+                                <div class="btn-group dropstart">
+                                    <button type="button" class="btn" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/delete/<%= data[i]._id %>"><i class="far fa-trash-alt"></i>
+                                                Delete</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/update/<%= data[i]._id %>"><i class="fas fa-pencil-alt"></i> Edit</a>
+                                        </li>
 
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <% } %>
+
                 </tbody>
             </table>
         </div>
